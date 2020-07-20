@@ -1,0 +1,59 @@
+
+> md2html@1.0.0 test /Users/ss42/Library/Mobile Documents/com~apple~CloudDocs/dev/node/md2html
+> mocha test/
+
+
+
+  1) converts Markdwon to HTML (GFM=false)
+  2) converts Markdown to HTML (GFM=true)
+
+  0 passing (28ms)
+  2 failing
+
+  1) converts Markdwon to HTML (GFM=false):
+
+      AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+[32m+ actual[39m [31m- expected[39m
+
+[32m+[39m '<h1 id="サンプルファイル">サンプルファイル</h1>\n<p>これはサンプルです。\nhttps://jsprimer.net/</p>\n<ul>\n<li>サンプル 1</li>\n<li>サンプル 2</li>\n</ul>\n'
+[31m-[39m '<h1 id="サンプルファイル">サンプルファイル</h1>\n<p>これはサンプルです。\nhttps://jsprimer.net/</p>\n<ul>\n<li>サンプル1</li>\n<li>サンプル2</li>\n</ul>\n'
+                                                                                            ^
+      + expected - actual
+
+       <h1 id="サンプルファイル">サンプルファイル</h1>
+       <p>これはサンプルです。
+       https://jsprimer.net/</p>
+       <ul>
+      -<li>サンプル 1</li>
+      -<li>サンプル 2</li>
+      +<li>サンプル1</li>
+      +<li>サンプル2</li>
+       </ul>
+      
+      at Context.it (test/md2html-test.js:17:10)
+
+  2) converts Markdown to HTML (GFM=true):
+
+      AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+[32m+ actual[39m [31m- expected[39m
+
+[32m+[39m '<h1 id="サンプルファイル">サンプルファイル</h1>\n<p>これはサンプルです。\n<a href="https://jsprimer.net/">https://jsprimer.net/</a></p>\n<ul>\n<li>サンプル 1</li>\n<li>サンプル 2</li>\n</ul>\n'
+[31m-[39m '<h1 id="サンプルファイル">サンプルファイル</h1>\n<p>これはサンプルです。\n<a href="https://jsprimer.net/">https://jsprimer.net/</a></p>\n<ul>\n<li>サンプル1</li>\n<li>サンプル2</li>\n</ul>'
+                                                                                                                                ^
+      + expected - actual
+
+       <h1 id="サンプルファイル">サンプルファイル</h1>
+       <p>これはサンプルです。
+       <a href="https://jsprimer.net/">https://jsprimer.net/</a></p>
+       <ul>
+      -<li>サンプル 1</li>
+      -<li>サンプル 2</li>
+      -</ul>
+      +<li>サンプル1</li>
+      +<li>サンプル2</li>
+      +</ul>
+      
+      at Context.it (test/md2html-test.js:30:10)
+
+
+
